@@ -60,6 +60,15 @@ function start_node_listener() {
 
 }
 
+function start_visualization() {
+  log "=== start 3D Graph Vizualization ==="
+  COMMAND="nginx -g 'daemon off;'"
+  log "Command: $COMMAND"
+  eval $COMMAND &
+  LISTENERPID=$!
+  log ""
+}
+
 # Clean docker tear down.
 function teardown() {
   # Perform program exit & housekeeping
@@ -82,6 +91,9 @@ function main() {
 
   # start listening to incoming data from running nodes
   start_node_listener
+
+  # start visualization
+  start_visualization
 
   # NOTE(const) SIGKILL cannot be caught because it goes directly to the kernal.
   trap teardown INT SIGHUP SIGINT SIGTERM

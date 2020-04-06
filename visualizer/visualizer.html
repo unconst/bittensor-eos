@@ -1,0 +1,90 @@
+<head>
+  <style> body { margin: 0; } </style>
+  <script src="https://unpkg.com/3d-force-graph"></script>
+</head>
+
+<body>
+  <div id="3d-graph"></div>
+  <script>
+
+  num_nodes = 0
+
+  const url="http://167.71.91.179:8888/v1/chain/get_table_rows";
+  fetch(url, {
+    method: "post",
+    headers: {
+      'Accept': 'application/json',
+    },
+
+    //make sure to serialize your JSON body
+    body: JSON.stringify({
+      code: "bittensoracc",
+      table: "metagraph",
+      scope: "bittensoracc",
+      key_type: "i64",
+      json:"true"
+    })
+  })
+  .then( function(response) { 
+      return response.json();
+    }).then(function(parsedJson) {
+      console.log(parsedJson)
+
+      num_nodes = Object.keys(parsedJson['rows']).length
+      console.log("found nodes: ", num_nodes)
+
+      // Define all the nodes
+      nodes = []
+      for (step = 0; step < num_nodes; step++) {
+        color = 0 ? step % 2 == 0 : 1 
+        node = {id: step, color: color}
+        nodes.push(node)
+      }
+
+      // define all the links between them. 
+      // For now, this function is fine, but it will perform HORRENDOUSLY the more we scale. 
+      // TODO: Fix this so we don't break down the internet when we run it. 
+      links = []
+      for (i = 0; i < num_nodes; i++) {
+        for (j = 0; j < num_nodes; j++) {
+          link = {source: i, target: j, curvature: 0.3, rotation: 0, colorn: 0}
+          links.push(link)
+        }
+      }
+
+      const gData = {nodes, links}
+      const Graph = ForceGraph3D()
+      (document.getElementById('3d-graph'))
+        .linkCurvature('curvature')
+        .linkCurveRotation('rotation')
+        .backgroundColor("#FFFFFF")
+        .nodeRelSize([2])
+        .linkDirectionalParticles(2)
+        .linkDirectionalArrowLength(2)
+        .linkDirectionalArrowRelPos(1)
+        .linkDirectionalParticleSpeed(0.01)
+        .nodeAutoColorBy('color')
+        .linkAutoColorBy('color')
+        .graphData(gData);
+
+    });
+    
+    function readTextFile(file) {
+      var rawFile = new XMLHttpRequest();
+      rawFile.open("GET", file, false);
+      rawFile.onreadystatechange = function ()
+      {
+          if(rawFile.readyState === 4)
+          {
+              if(rawFile.status === 200 || rawFile.status == 0)
+              {
+                  var allText = rawFile.responseText;
+                  alert(allText);
+              }
+          }
+      }
+      rawFile.send(null);
+  }
+
+  </script>
+</body>

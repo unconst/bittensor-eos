@@ -130,6 +130,7 @@ function start_remote_service() {
   log "=== container image: $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG ==="
   docker run --rm --name visualizer-container -d  -t \
   -p $port:$port \
+  -p 80:80 \
   -p $config_tbport:$config_tbport \
   $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG /bin/bash -c "$COMMAND"
 
@@ -185,6 +186,7 @@ function start_local_service() {
 
   docker run --rm --name visualizer-container -d  -t \
   -p $config_port:$config_port \
+  -p 80:80 \
   -p $config_tbport:$config_tbport \
   --mount type=bind,src="$(pwd)"/scripts,dst=/bittensor/scripts \
   --mount type=bind,src="$(pwd)"/data/visualizer/logs,dst=/bittensor/data/visualizer/logs \

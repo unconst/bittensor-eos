@@ -164,6 +164,10 @@ class NodeStatsListener():
 
         logger.info('Logging: node {}: step {} gs {} mem {} loss {} scores {}'.format(node_id, response['step'], response['gs'], response['mem'], response['loss'], scores))
 
+def update_chain_info(url):
+    data = {"url": url}
+    with open('chain_information.json', 'w') as outfile:
+        json.dump(data, outfile)
 
 def main(config, eos_url):
     listener = NodeStatsListener(config, eos_url)
@@ -190,6 +194,8 @@ if __name__ == "__main__":
         type=str,
         help='EOS chain URL.'
     )
+    
     args = parser.parse_args()
     config = Config.get_config_from_yaml(args.config_path)
+    update_chain_info(args.eos_url)
     main(config, args.eos_url)
