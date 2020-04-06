@@ -30,6 +30,9 @@ $ ./bittensor.sh
 
 # Start node 2.
 $ ./bittensor.sh
+
+# start tensorboard visualizer
+$ ./start_visualizer.sh -e http://host.docker.internal:8888
 ```
 ---
 
