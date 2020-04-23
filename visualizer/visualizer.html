@@ -9,7 +9,7 @@
 
   num_nodes = 0
 
-  const url="http://167.71.91.179:8888/v1/chain/get_table_rows";
+  const url="http://209.97.144.31:8888/v1/chain/get_table_rows";
   fetch(url, {
     method: "post",
     headers: {
@@ -36,7 +36,7 @@
       // Define all the nodes
       nodes = []
       for (step = 0; step < num_nodes; step++) {
-        color = 0 ? step % 2 == 0 : 1 
+        color = 0 ? step % 2 == 1 : 0 
         node = {id: step, color: color}
         nodes.push(node)
       }
@@ -57,10 +57,11 @@
       (document.getElementById('3d-graph'))
         .linkCurvature('curvature')
         .linkCurveRotation('rotation')
-        .backgroundColor("#FFFFFF")
+        .backgroundColor("#000000")
         .nodeRelSize([2])
         .linkDirectionalParticles(2)
-        .linkDirectionalArrowLength(2)
+        .linkWidth(0.5)
+        .linkDirectionalArrowLength(3)
         .linkDirectionalArrowRelPos(1)
         .linkDirectionalParticleSpeed(0.01)
         .nodeAutoColorBy('color')

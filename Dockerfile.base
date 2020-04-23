@@ -39,7 +39,8 @@ RUN pip3 install --upgrade pip && \
   pip3 install pycrypto && \
   pip3 install --upgrade setuptools && \
   pip3 install timeloop && \
-  pip3 install zipfile36 
+  pip3 install zipfile36 && \
+  pip3 install tensorflow-datasets
 
 # Copy BitTensor source to this image.
 RUN mkdir bittensor
