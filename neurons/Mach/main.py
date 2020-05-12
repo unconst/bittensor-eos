@@ -127,7 +127,6 @@ if __name__ == '__main__':
         type=float,
         help='Moving average param for score calc. Default score_ema=0.05')
 
-
     # Training params.
     parser.add_argument(
         '--batch_size',
@@ -151,7 +150,7 @@ if __name__ == '__main__':
         help='Size of embedding between components. Default n_embedding=128')
     parser.add_argument(
         '--n_children',
-        default=5,
+        default=2,
         type=int,
         help='The number of graph neighbors. Default n_children=2')
     parser.add_argument('--n_hidden1',
