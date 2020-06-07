@@ -15,3 +15,11 @@ if [ -x "$(docker -v)" ]; then
   echo "You need to install docker: https://docs.docker.com/install/"
   exit 0
 fi
+
+if (! docker stats --no-stream ); then
+  echo "You need to start the docker deamon"
+  echo '$ sudo systemctl enable docker'
+  echo '$ sudo groupadd docker'
+  echo '$ sudo usermod -aG docker ${USER}'
+  echo '$ su -s ${USER}'
+fi

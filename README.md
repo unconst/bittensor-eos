@@ -36,6 +36,24 @@ $ ./start_visualizer.sh -e http://host.docker.internal:8888
 ```
 ---
 
+## Installing Docker
+
+Follow these commands
+1. Install docker: https://docs.docker.com/install/"
+
+Enable the Deamon
+1. sudo systemctl enable docker'
+
+Create docker group.
+1. sudo groupadd docker
+
+Add you user to the docker group.
+1. sudo usermod -aG docker ${USER}
+
+Log out or run.
+1. su -s ${USER}
+
+
 ## Learn More
 
 Join our [slack](https://bittensor.slack.com/) and say hello :)
