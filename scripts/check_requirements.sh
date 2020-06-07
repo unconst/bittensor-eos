@@ -7,17 +7,8 @@ if [ -x python3 ]; then
 fi
 
 # Test for loguru
-if -x python3 -c "import loguru" &> /dev/null; then
-  echo "You need to install loguru"
-  pip3 install loguru
-fi
-
-# Test for upnpc
-if -x python3 -c "import miniupnpc" &> /dev/null; then
-  echo "You need to install miniupnpc"
-  pip3 install miniupnpc
-fi
-
+pip3 install loguru
+pip3 install miniupnpc
 
 # Test for docker
 if [ -x "$(docker -v)" ]; then
