@@ -6,13 +6,7 @@
 
 ## Overview
 
-This software is designed to run an intermodel machine intelligence benchmark which measures the performance of other learners via informational significance. 
-
-The code, when run, generates an aynchronous, decentralized, mixture of experts model which trains across computers in a peer-to-peer fashion. 
-
-In absence of centralized control, the network ranks using collaborative filtering where each participant is running a pruning method to measure the informational significance of their peers. To computers with large rank the network mints digital tokens which provide power over the network.
-
-This repo contains an implementation of a peer in this network. It trains a self-supervised language representation using a dumpy corpus of text by taking as input the output of its peers in the network. In doing so, it mines the network native digital token.
+BitTensor is a Machine Intelligence benchmark which rewards knowledge production from within a peer to peer network. In absence of centralized control, the network scores this knowledge collaboratively, having participants measure the informational significance of their peers. A digital ledger then mints tokens to those computer proportional these scores.
 
 ---
 ## Run Locally
@@ -37,21 +31,22 @@ $ ./start_visualizer.sh -e http://host.docker.internal:8888
 ---
 
 ## Installing Docker
-
-Follow these commands
+```
+# Follow these commands
 1. Install docker: https://docs.docker.com/install/"
 
-Enable the Deamon
-1. sudo systemctl enable docker'
+# Enable the Deamon
+$ sudo systemctl enable docker'
 
-Create docker group.
-1. sudo groupadd docker
+# Create docker group.
+$ sudo groupadd docker
 
-Add you user to the docker group.
-1. sudo usermod -aG docker ${USER}
+# Add you user to the docker group.
+$ sudo usermod -aG docker ${USER}
 
-Log out or run.
-1. su -s ${USER}
+# Log out or run.
+$ su -s ${USER}
+```
 
 
 ## Learn More
