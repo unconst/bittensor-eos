@@ -7,13 +7,6 @@ cd "$(dirname "$0")"
 # Load constants
 source scripts/constant.sh
 
-#!/usr/bin/env bash
-set -o errexit
-
-# change to script's directory
-cd "$(dirname "$0")"
-source ./scripts/constant.sh
-
 # Check script check_requirements
 source scripts/check_requirements.sh
 
