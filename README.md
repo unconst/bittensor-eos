@@ -6,7 +6,7 @@
 
 ## Overview
 
-BitTensor is a Machine Intelligence benchmark which rewards knowledge production from within a peer to peer network. In absence of centralized control, the network scores this knowledge collaboratively, having participants measure the informational significance of their peers. A digital ledger then mints tokens to those computer proportional these scores.
+BitTensor is a Machine Intelligence benchmark which rewards knowledge production from within a peer to peer network. In absence of centralized control, the network scores this knowledge collaboratively, having participants measure the informational significance of their peers. A digital ledger then mints tokens to those computer proportional to these scores.
 
 ---
 ## Run Locally
