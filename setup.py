@@ -49,6 +49,6 @@ setup(
         'argparse', 'grpcio', 'grpcio-tools', 'libeospy', 'loguru',
         'matplotlib', 'miniupnpc', 'networkx', 'numpy', 'pebble',
         'pickle-mixin', 'pycrypto', 'sklearn', 'tensorflow==1.15.2',
-        'tensorflow_hub==0.4.0', 'timeloop', 'zipfile36'
+        'timeloop', 'zipfile36'
     ],  # Optional
 )
